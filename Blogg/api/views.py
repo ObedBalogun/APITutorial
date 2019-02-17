@@ -1,5 +1,3 @@
-from . import serializers
-from rest_framework.views import APIView
 from rest_framework import generics
 from .serializers import BlogPostSerializer
 from Blogg.models import BlogPost
