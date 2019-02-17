@@ -20,6 +20,7 @@ from django.conf.urls import url, include
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^api/blogg/', include('Blogg.api.urls', namespace='api-blogg')),
+    url('', include('Blogg.urls')),
 ]
 
 
