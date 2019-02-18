@@ -6,8 +6,9 @@ class BlogPostSerializer(serializers.ModelSerializer):
         model = BlogPost
         fields = (
             'pk',
-            'name',
+            'Name',
             'date_created',
-            'content'
+            'Title',
+            'Content'
         )
-
+    read_only_fields =['date_created','pk']

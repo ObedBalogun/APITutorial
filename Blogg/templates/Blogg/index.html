@@ -5,7 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<!--{% for post in posts %}-->
-<!--<p></p>-->
+<ul>
+    {%for post in posts%}
+        <li>
+            {{post.Content}}
+            <form action="{% url 'Blogg:delete_post' post.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}" />
+                <button type="submit" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                </button>
+            </form>
+        </li>
+    {%endfor%}
+</ul>
 </body>
 </html>
