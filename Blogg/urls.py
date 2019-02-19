@@ -5,6 +5,6 @@ app_name = 'Blogg'
 
 urlpatterns=[
     path('',homepage, name= 'homepage'),
-    path('',create_post, name='create_post'),
+    path('new',create_post, name='create_post'),
     path('delete_post/<int:post_id>',delete_post, name='delete_post'),
 ]
