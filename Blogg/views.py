@@ -20,5 +20,6 @@ def delete_post(request, post_id):
         posts.delete()
         return redirect('homepage')
 
-def update_post(request):
-    pass
+def update_post(request, post_id):
+    posts = BlogPost.objects.get(pk=post_id)
+    return render(request,'Blogg/index.html',{'posts':posts})
