@@ -25,4 +25,5 @@ def update_post(request, post_id):
     form = PostForm(request.POST or None, instance=posts)
     if form.is_valid():
         form.save()
-    return render(request,'Blogg/index.html',{'posts':posts})
+    return render(request,'Blogg/index.html',{'posts':posts,
+                                              'form':form})

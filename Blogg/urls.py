@@ -7,4 +7,5 @@ urlpatterns=[
     path('',homepage, name= 'homepage'),
     path('new',create_post, name='create_post'),
     path('delete_post/<int:post_id>',delete_post, name='delete_post'),
+    path('update_post/<int:post_id>',update_post, name='update_post'),
 ]
