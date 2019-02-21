@@ -1,10 +1,16 @@
 from django.shortcuts import render,redirect
 from .models import BlogPost
 from .forms import PostForm
+import urllib.request as url
+
 
 def homepage(request):
     posts = BlogPost.objects.all()
+    # url_link = url.Request('http://pythonprogramming.net')
+    # link = url.urlopen(url_link)
+    # link_data = link.read()
     return render(request,'Blogg/index.html',{'posts':posts})
+
 
 def create_post(request):
     form = PostForm(request.POST or None)

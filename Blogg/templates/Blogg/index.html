@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<ul>
+{% extends 'Blogg/base.html' %}
+{% block title%}Homepage{% endblock %}
+
+{% block body %}
+
+    <ul>
     {%for post in posts%}
         <li>
             {{post.Content}}
@@ -20,5 +18,4 @@
     {%endfor%}
 </ul>
 <a href="{% url 'Blogg:create_post'%}"> New Post</a>
-</body>
-</html>
+{% endblock %}
