@@ -2,18 +2,27 @@
 {% block title%}Homepage{% endblock %}
 
 {% block body %}
-
-    <ul>
-    {%for post in posts%}
-        <li>
-            {{post.Content}}
-            <form action="{% url 'Blogg:delete_post' post.id %}" method="post" style="display: inline;">
+    <div class="container-fluid">
+    <div class="col-md-6 col-lg-9">
+    {% for post in posts %}
+        <h1>{{ post.Title }}</h1>
+        <blockquote>{{ post.Content }}</blockquote>
+        <form action="{% url 'Blogg:delete_post' post.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <input type="hidden" name="post_id" value="{{ post.id }}" />
                 <button type="submit" class="btn btn-danger btn-xs">
                     <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
                 </button>
             </form>
+        {% endfor %}
+    </div>
+    </div>
+
+    <ul>
+    {%for post in posts%}
+        <li>
+            {{post.Content}}
+
         </li>
     {%endfor%}
 </ul>
