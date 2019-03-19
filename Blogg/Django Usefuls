@@ -1,0 +1,15 @@
+**THE USER MODULE**
+    Default attributes for the 'user' object
+    -username, password, email, first_name, last_name
+#Creating a user
+    from django.contrib.auth.models import User
+    user = User.objects.create_user(name,email,password)
+    user.save()
+
+#Authenticating a user
+   from django.contrib.auth import authenticate
+   user = authenticate(username="" ,password="")
+   if user is not None:
+        authenticated
+   else:
+        not authenticated
