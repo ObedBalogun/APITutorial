@@ -12,6 +12,7 @@ def detail(request, question_id):
     return render(request,'polls/details.html', {'question':question})
 
 def results(request, question_id):
+
     return HttpResponse("The results of question %s are" % question_id)
 def vote(request,question_id):
     return HttpResponse("You're voting on question %s" %question_id)
