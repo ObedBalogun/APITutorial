@@ -13,8 +13,9 @@ def detail(request, question_id):
     return render(request,'polls/details.html', {'question':question})
 
 def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
 
-    return HttpResponse("The results of question %s are" % question_id)
+    return render(request, 'polls/results.html',{'question':question})
 def vote(request,question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
@@ -25,4 +26,4 @@ def vote(request,question_id):
     else:
         selected_choice.votes +=1
         selected_choice.save()
-        return HttpResponseRedirect(reverse('polls:results',args=(question.id,)))
+        return HttpResponseRedirect(reverse('polls:results',args=(question.id,))) #you should always return an HttpResponseRedirect after successfully dealing with POST data.
