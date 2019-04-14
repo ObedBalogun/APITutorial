@@ -7,11 +7,12 @@ from django.utils import timezone
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
-    context_object_name = 'questions' #context_object_name is to overide the default context variable "question_list"
+    context_object_name = 'latest_question' #context_object_name is to override the default context variable "question_list"
 
     def get_queryset(self):
       #returns last 5 published questions with dates <= timezone.now()
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')[:5]
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
